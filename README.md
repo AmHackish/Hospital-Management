@@ -10,11 +10,6 @@ https://nhs-app.herokuapp.com/
 * username: admin
 * password: admin
 
-# Youtube video
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=Q9wTakyRWi4
-" target="_blank"><img src="http://img.youtube.com/vi/Q9wTakyRWi4/0.jpg" 
-alt="Youtube video" width="240" height="180" border="10" /></a>
-
 # Prerequisites
 - [x] Node.js 6.9.1 or later - install from https://nodejs.org/
 
@@ -58,74 +53,4 @@ Double click on a patient name on the dashboard to get here.
 The control center of the application. It allows users to manage the diseases & rooms of the Hospital and create new accounts
 
 ![System Settings](https://github.com/margiki/NHS-nodejs-webapp/blob/master/github_readme_photos/system_settings.jpg)
-
-# App Modules and Code organisation
-### Modules
-
-Module|Core	|Patients|Diseases|Rooms 
-------|-----|--------|--------|----
-Functionality	|- login system | - add / delete patients | - add / delete diseases | 	- assign rooms to patients
-.|- add users | - update patient's diagnosis | - assign disease to patients | - add / remove rooms
-.|- view dashboard	| - view patient’s page | 
-.|.| - retrieve patient's information	
-
-### Code organisation :open_file_folder:
-
-Folder | Content | Responsability
-------|-----|--------
-/public	| |	Contains the public files, such as CSS, fonts and scripts.
-/routes	| |	Manage the HTTP requests. Is divided into smaller modules responsible for disjoint tasks.
-.	|/app.js| 	Renders dashboard page
-.	|/disease.js| 	Responsible for diseases
-.	|/login.js|	Responsible for logging in
-.	|/patients.js|	Responsible for patients
-.	|/rooms.js|	Responsible for rooms
-.	|/settings.js|	Renders settings page
-.	|/users.js|	Add new users and logout
-/server	| |	Defines the database and Schemas
-.	|/db/mongoose.js| 	Database settings
-.	|/models| 	Defines Schemas
-/views		| |Render pages
-.	|/layouts|	The core layout; each page is rendered inside the layout
-.	|/(other files)|	Contains specific visual changes for every page
-
-# Technologies
-
-### Backend
-![Nodejs - ExpressJS](https://github.com/margiki/NHS-nodejs-webapp/blob/master/github_readme_photos/backend.jpg)
-
-### Frontend
-![jQuery](https://github.com/margiki/NHS-nodejs-webapp/blob/master/github_readme_photos/frontend.jpg)
-
-### Database
-![MongoDB - Mongoose](https://github.com/margiki/NHS-nodejs-webapp/blob/master/github_readme_photos/database.jpg)
-
-### Databse Schema
-![Database schema](https://github.com/margiki/NHS-nodejs-webapp/blob/master/github_readme_photos/database_design.jpg)
-
-**The available application is connected to a MongoDB database online.** If you want to change the database to another one, you need to go: NHS app folder -> server -> db -> mongoose.js
-
-Inside the file, you need to change the database link from
-mongoose.connect("mongodb://admin:admin123@ds145220.mlab.com:45220/nhs-app"); to mongoose.connect("your-database-link");
-
-# REST Apis
-The backend and frontend communicate through REST Apis. On the frontend, we make Ajax requests using jQuery to the following routes: 
-
-URI |	Returns
-----|----
-/app/getdiseases |	returns information about all diseases in the system
-/app/getpatients |       	returns information about all patients in the system
-/app/getpatient/:hospitalNumber |	returns information about a specific patient
-/app/getrooms	| returns information about the rooms in the system
-
-# Known bugs :bug:
-1. On some mobiles devices (iPhone, iPad) assigning rooms to patients is not working because mobile browsers doesn’t interpret the double-click. Also, the user can’t enter the patient's page because of the same reason. However, on LG mobile devices this feature works. 
-
-# License 
-Free to use, copy and distribute. :money_with_wings:
-
-
-
-
-
 
